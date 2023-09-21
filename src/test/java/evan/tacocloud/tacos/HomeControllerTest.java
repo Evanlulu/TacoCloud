@@ -17,11 +17,11 @@ public class HomeControllerTest {
 
     @Test
     public void testHomePage() throws  Exception{
-        mockMvc.perform(get("/"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("home"))
-                .andExpect(content().string(
-                        containsString("Welcome to")
+        mockMvc.perform(MockMvcRequestBuilders.get("/"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.view().name("home"))
+                .andExpect(MockMvcResultMatchers.content().string(
+                        Matchers.containsString("Welcome to")
                         ));
     }
 
