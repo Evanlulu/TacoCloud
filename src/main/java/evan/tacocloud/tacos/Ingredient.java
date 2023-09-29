@@ -4,19 +4,23 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
 
 @Data
 //@Table
-@Entity
+//@Entity JPA
+@Table ("ingredients")//cassandra
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
 
-    @Id
+//    @Id //JPA
+    @PrimaryKey
     private String id;
     private String name;
     private Type type;
